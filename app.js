@@ -8,6 +8,8 @@
   var gem = {
     name: 'Dodic',
     price: 2.95,
-    description: 'Some text here'
+    description: 'Some text here',
+    canPurchase: false,
+    soldOut: false
   }
 })();
