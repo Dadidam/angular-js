@@ -36,7 +36,7 @@
           <blockquote ng-repeat="review in product.reviews">
             <b>Stars: {{review.stars}}</b>
             {{review.body}}
-            <cite>by: {{review.author}}</cite>
+            <cite class="clearfix">-{{review.author}}</cite>
           </blockquote>
           <form name="reviewForm">
             <blockquote>
@@ -44,17 +44,21 @@
               {{review.body}}
               <cite>by: {{review.author}}</cite>
             </blockquote>
-            <select ng-model="review.stars">
-              <option value="1">1 star</option>
-              <option value="2">2 stars</option>
-              <option value="3">3 stars</option>
-              <option value="4">4 stars</option>
-              <option value="5">5 stars</option>
-            </select>
-            <textarea ng-model="review.body"></textarea>
-            <label>by:</label>
-            <input type="email" ng-model="review.author" />
-            <input type="submit" value="Submit" />
+            <h4>Submit a Review</h4>
+            <fieldset class="form-group">
+              <select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+                <option value="">Rate the Product</option>
+              </select>
+            </fieldset>
+            <fieldset class="form-group">
+              <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product here..." title="Review"></textarea>
+            </fieldset>
+            <fieldset class="form-group">
+                <input type="email" ng-model="review.author" class="form-control" placeholder="jimmyDummy@example.org" title="Email" />
+            </fieldset>
+            <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+            </fieldset>
           </form>
         </div>
       </section>
