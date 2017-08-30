@@ -1,6 +1,9 @@
 (function() {
   var app = angular.module('store', [ ]);
 
+  /* 
+    App Controllers 
+  */
   app.controller('StoreController', function() {
     this.products = gems;
   });
@@ -23,6 +26,17 @@
     this.addReview = function(product) {
       product.reviews.push(this.review);
       this.review = {};
+    };
+  });
+
+  /*
+    Custom Directions
+  */
+
+  app.directive('productTitle', function() {
+    return {
+      restrict: 'A',
+      templateUrl: 'product-title.html'
     };
   });
 
