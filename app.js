@@ -7,9 +7,11 @@
 
   app.controller('PanelController', function() {
     this.tab = 1;
+
     this.selectTab = function(setTab) {
       this.tab = setTab;
     };
+    
     this.isSelected = function(checkTab) {
       return this.tab === checkTab;
     };
@@ -22,7 +24,19 @@
       description: 'Unique item for your and your spouse',
       canPurchase: true,
       soldOut: false,
-      image: 'img/rubic_cube.jpg'
+      image: 'img/rubic_cube.jpg',
+      reviews: [
+        {
+          stars: 5,
+          body: 'I love this product!',
+          author: 'joe@thomas.com'
+        },
+        {
+          stars: 1,
+          body: 'This product sucks',
+          author: 'tim@hater.com'
+        }
+      ]
     },
     {
       name: 'Rubik',
@@ -30,7 +44,19 @@
       description: 'Antistress toy',
       canPurchase: false,
       soldOut: false,
-      image: 'img/rubic_cube.jpg'
+      image: 'img/rubic_cube.jpg',
+      reviews: [
+        {
+          stars: 5,
+          body: 'I love this product!',
+          author: 'joe@thomas.com'
+        },
+        {
+          stars: 1,
+          body: 'This product sucks',
+          author: 'tim@hater.com'
+        }
+      ]
     }
   ];
 })();
