@@ -4,9 +4,14 @@
   /* 
     App Controllers 
   */
-  app.controller('StoreController', function() {
-    this.products = gems;
-  });
+  app.controller('StoreController', ['$http', function($http) {
+    var store = this;
+    store.products = [];
+
+    $http.get('/products.json').then(function(data) {
+      store.products = data.data;
+    });
+  }]);
 
   app.controller('PanelController', function() {
     this.tab = 1;
@@ -28,47 +33,4 @@
       this.review = {};
     };
   });
-
-  var gems = [
-    {
-      name: 'Dodic',
-      price: 32,
-      description: 'Unique item for your and your spouse',
-      canPurchase: true,
-      soldOut: false,
-      image: 'img/rubic_cube.jpg',
-      reviews: [
-        {
-          stars: 5,
-          body: 'I love this product!',
-          author: 'joe@thomas.com'
-        },
-        {
-          stars: 1,
-          body: 'This product sucks',
-          author: 'tim@hater.com'
-        }
-      ]
-    },
-    {
-      name: 'Rubik',
-      price: 726.81,
-      description: 'Antistress toy',
-      canPurchase: false,
-      soldOut: false,
-      image: 'img/rubic_cube.jpg',
-      reviews: [
-        {
-          stars: 5,
-          body: 'I love this product!',
-          author: 'joe@thomas.com'
-        },
-        {
-          stars: 1,
-          body: 'This product sucks',
-          author: 'tim@hater.com'
-        }
-      ]
-    }
-  ];
 })();
